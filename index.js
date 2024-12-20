@@ -299,7 +299,7 @@ app.get('/hotels/filter/category', (req, res) => {
 });
 
 function filterByCategory(hotel, category) {
-  return hotel.category.toLowerCase() === country;
+  return hotel.category.toLowerCase() === category;
 }
 
 //Endpoint 7: Send all hotels
