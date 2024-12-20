@@ -212,10 +212,11 @@ let hotels = [
 //Endpoint 1: Get the hotels sorted by pricing
 app.get('/hotels/sort/pricing', (req, res) => {
   let pricing = req.query.pricing;
+  let sortedHotels = hotels.slice();
   if (pricing === 'high-to-low') {
-    let sortedHotels = hotels.sort(priceHighToLow);
+    sortedHotels.sort(priceHighToLow);
   } else if (pricing === 'low-to-high') {
-    let sortedHotels = hotels.sort(priceLowToHigh);
+    sortedHotels.sort(priceLowToHigh);
   }
   res.json({ hotels: sortedHotels });
 });
@@ -231,10 +232,11 @@ function priceLowToHigh(hotel1, hotel2) {
 //Endpoint 2: Get the hotels sorted based on their Ratings
 app.get('/hotels/sort/rating', (req, res) => {
   let rating = req.query.rating;
+  let sortedHotels = hotels.slice();
   if (rating === 'high-to-low') {
-    let sortedHotels = hotels.sort(rateHighToLow);
+    sortedHotels.sort(rateHighToLow);
   } else if (rating === 'low-to-high') {
-    let sortedHotels = hotels.sort(rateLowToHigh);
+    sortedHotels.sort(rateLowToHigh);
   }
   res.json({ hotels: sortedHotels });
 });
@@ -250,10 +252,11 @@ function rateLowToHigh(hotel1, hotel2) {
 //Endpoint 3: Get the Hotels sorted based on their Reviews
 app.get('/hotels/sort/reviews', (req, res) => {
   let reviews = req.query.reviews;
+  let sortedHotels = hotels.slice();
   if (reviews === 'most-to-least') {
-    let sortedHotels = hotels.sort(reviewHighToLow);
+    sortedHotels.sort(reviewHighToLow);
   } else if (reviews === 'least-to-most') {
-    let sortedHotels = hotels.sort(reviewLowToHigh);
+    sortedHotels.sort(reviewLowToHigh);
   }
   res.json({ hotels: sortedHotels });
 });
